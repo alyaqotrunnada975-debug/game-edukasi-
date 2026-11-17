@@ -1,0 +1,222 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-parchment: #faf5eb;
+  --color-parchment-deep: #f0e6d2;
+  --color-teak: #261c15;
+  --color-teak-soft: #4e3b2d;
+  --color-musi: #0e5a5c;
+  --color-musi-dark: #093d3e;
+  --color-sriwijaya-gold: #d4941e;
+  --color-sriwijaya-amber: #f5b942;
+  --color-ampera-red: #b93829;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #162426;
+    color: #261c15;
+    font-family: var(--font-sans);
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.sriwijaya-panel {
+  background-color: rgba(250, 245, 235, 0.96);
+  border: 2px solid #c99c4c;
+  box-shadow: 0 12px 32px rgba(22, 16, 10, 0.34);
+}
+
+.sriwijaya-hud-chip {
+  background-color: rgba(24, 34, 36, 0.88);
+  border: 1.5px solid rgba(212, 148, 30, 0.65);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+}
+
+.custom-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: rgba(38, 28, 21, 0.08);
+  border-radius: 999px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: rgba(180, 125, 42, 0.55);
+  border-radius: 999px;
+}
+
+@keyframes sriwijayaFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes sriwijayaFadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sriwijayaCardLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-24px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes sriwijayaSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sriwijayaModalPop {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes sriwijayaCurtainIn {
+  from {
+    opacity: 0;
+    transform: scale(1.03);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes sriwijayaCurtainOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.985);
+  }
+}
+
+@keyframes sriwijayaCompassSpin {
+  0% {
+    opacity: 0;
+    transform: scale(0.76) rotate(-32deg);
+  }
+  55% {
+    opacity: 1;
+    transform: scale(1.06) rotate(8deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes sriwijayaShimmerBar {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.anim-backdrop-fade {
+  animation: sriwijayaFadeIn 0.18s ease-out both;
+}
+
+.anim-fade-down {
+  animation: sriwijayaFadeDown 0.34s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.anim-card-left {
+  animation: sriwijayaCardLeft 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.anim-slide-up {
+  animation: sriwijayaSlideUp 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.anim-modal-pop {
+  animation: sriwijayaModalPop 0.25s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.anim-line-swap {
+  animation: sriwijayaSlideUp 0.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.anim-curtain-in {
+  animation: sriwijayaCurtainIn 0.26s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.anim-curtain-out {
+  animation: sriwijayaCurtainOut 0.34s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.anim-compass-spin {
+  animation: sriwijayaCompassSpin 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.anim-shimmer-bar {
+  animation: sriwijayaShimmerBar 0.75s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
